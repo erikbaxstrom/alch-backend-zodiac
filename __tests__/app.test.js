@@ -21,4 +21,13 @@ describe('zodiac route', () => {
     };
     expect(resp.body).toEqual(expected);
   });
+
+  it('/horoscopes/:sign should return a horoscope', async () => {
+    const resp = await request(app).get('/horoscopes/leo');
+    const expected = {
+      sign: 'leo',
+      text: 'Blue skies ahead.',
+    };
+    expect(resp.body).toEqual(expected);
+  });
 });
