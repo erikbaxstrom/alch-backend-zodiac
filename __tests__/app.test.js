@@ -10,4 +10,15 @@ describe('zodiac route', () => {
     });
     expect(resp.body).toEqual(expected);
   });
+
+  it('/zodiac/1 should return details about the first sign', async () => {
+    const resp = await request(app).get('/zodiac/1');
+    const expected = {
+      id: '1',
+      name: 'aquarius',
+      dates: 'Jan 21 - Feb 19',
+      symbol: 'Water Bearer',
+    };
+    expect(resp.body).toEqual(expected);
+  });
 });
